@@ -1,0 +1,56 @@
+{% extends 'base_front_kais.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+
+    <main id="main">
+        <section id="portfolio-details" class="portfolio-details">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-8">
+                        <div class="portfolio-details-slider swiper">
+                            <div class="swiper-wrapper align-items-center">
+
+                                <div class="swiper-slide">
+                                    <img src="{{ asset('uploads/image/art/'  ~ article.imageName) }}" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="portfolio-info">
+                            <h3>Informations Produits</h3>
+                            <ul>
+                                <li><strong>Nom</strong>: {{ article.nomarticle }}</li>
+                                <li><strong>marque</strong>: {{ article.marquearticle }}</li>
+                                <li><strong>disponibilite</strong>: {{ article.disponibilitearticle }}</li>
+                                <li><strong>type</strong>: {{ article.typearticle }}</li>
+                                <li><strong>couleur</strong>: {{ article.couleurarticle }}</li>
+                                <li><strong>taille</strong>: {{ article.taillearticle }}</li>
+                                <li><strong>prix</strong>: {{ article.prixarticle }} TND </li>
+                            </ul>
+                        </div>
+                        <div class="portfolio-description">
+                            <h2>Titre</h2>
+                            <p>
+                                {{ article.descriptionarticle }}
+                            </p>
+                        </div>
+                        <div class="portfolio-description">
+                            <h2>AVIS</h2>
+                            <p>
+                                {{ note }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <a href="{{ path('app_avisart_new_front', {'id': article.idarticle}) }}">Donner avis</a>
+
+    <a href="{{ path('app_article_index_front') }}">back to list</a>
+
+{% endblock %}

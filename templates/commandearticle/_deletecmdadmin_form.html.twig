@@ -1,0 +1,11 @@
+<div class="d-flex justify-content-center">
+
+<div class="text-center" >
+    <div class="form-group">
+    <form method="post" action="{{ path('app_commandearticle_delete', {'idcommande': commandearticle.idcommande}) }}" onsubmit="return confirm('Vous-êtes sure de rejetée cette commande');">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ commandearticle.idcommande) }}">
+        <button  class="btn btn-inverse-secondary btn-fw"><i class="ti-alert btn-icon-prepend">  </i>{{ 'Refuser la commande'|trans|raw }}</button>
+    </form>
+    </div>
+</div>
+</div>

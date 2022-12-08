@@ -1,0 +1,38 @@
+{% extends 'base_front_kais.html.twig' %}
+
+{% block title %}Magasins{% endblock %}
+
+{% block body %}
+
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                <th>Nom </th>
+                <th>Adresse </th>
+                <th>Email </th>
+                <th>Tel </th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for magasin in magasins %}
+            <tr>
+                <td>{{ magasin.nommagasin }}</td>
+                <td>{{ magasin.adressemagasin }}</td>
+                <td>{{ magasin.emailmagasin }}</td>
+                <td>{{ magasin.telmagasin }}</td>
+                <td>
+                    <a href="{{ path('app_magasin_show_front', {'idmagasin': magasin.idmagasin}) }}">show</a>
+                    <a href="{{ path('app_magasin_edit_front', {'idmagasin': magasin.idmagasin}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_magasin_new_front') }}">Create new</a>
+{% endblock %}

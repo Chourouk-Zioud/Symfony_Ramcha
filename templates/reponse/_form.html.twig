@@ -1,0 +1,23 @@
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+
+<div class="forms-sample">
+    <div class="form-group">
+        <label for="exampleInputCity1">{{form_label(form.status,"Status")}}</label>
+        <select type="text" class="form-control" id="exampleInputCity1"  {{form_widget(form.status)}}
+        <option value="En cours"></option>
+        <option value="traitée"></option>
+        <option value="Non traitée"></option>
+    </div>
+
+    <div class="form-group"><br>
+        <label for="exampleTextarea1">{{form_label(form.text,"Reponse")}}</label>
+        <textarea class="form-control" id="exampleTextarea1"   rows="4" {{form_widget(form.text)}}
+        </textarea>
+        {{form_errors(form.text)}}
+    </div>
+
+    <button class="btn btn-primary mr-2">{{ button_label|default('Save') }}</button>
+</div>
+
+{{ form_end(form) }}

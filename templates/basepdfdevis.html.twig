@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    {#  <link type="text/css" href="{{ asset('C:\Users\ASUS\CmdRamch\public\csspdf.css')}}" rel="stylesheet" />#}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<table width="750px" class="text-center">
+    <tr>
+        <td><h2 style="color: #1b2658">Ramcha.tn à votre service en un clin d'oeil !</h2> </td>
+        <td><img src="{{ app.request.getSchemeAndHttpHost() ~ asset('Front-office/img/logoramcha.jpg') }}" alt="" width="100px" height="100px"></td>
+    </tr>
+</table>
+<h2>Devis : </h2>
+
+{% block body %}
+
+{% endblock %}
+<footer>
+    <table width="530">
+        <td>
+            <h5>Ramcha</br>
+                Tunis, Ariana</br>
+                Hay ghazella, 8952</br>
+                Phone: +216 98 558 669</br>
+                Email: Ramcha@gmail.com</h5>
+        </td>
+        <td>
+            <div style="text-align: right;">
+                <img src="{{ app.request.getSchemeAndHttpHost() ~ asset('Front-office/img/SNR.jpg') }}" alt="" width="150px" height="150px">
+            </div>
+        </td>
+    </table>
+</footer>
+</body>
+</html>

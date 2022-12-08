@@ -1,0 +1,53 @@
+
+{# {% extends 'base-Front-Login.html.twig' %} #}
+{% block body %}
+
+    <td>
+    <div class="col-lg-20 mt-10 mt-lg-0 d-flex align-items-stretch">
+        <div class="container">
+
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="text-center">
+                    <h4>Connectez-Vous</h4>
+                    </div>
+                    <form action="{{ path('app_utilisateur_index') }}" method="post" class="needs-validation">
+                        <div class="form group was-validated">
+                        <div class="col-lg-6">
+                            <input placeholder="Adresse email..." required name="loginuser" type="text" class="form-control" >
+                            <div class="invalid-feedback">
+                                Veuillez entrer votre email !
+                            </div>
+                        </div>
+                        </div>
+                        </br>
+                        <div class="form group was-validated">
+                        <div class="col-lg-6">
+                            <input placeholder="Mot de passe..." required name="passwuser" type="password" class="form-control">
+                            <div class="invalid-feedback">
+                                Veuillez entrer votre mot de passe!
+                            </div>
+                        </div>
+                        </div>
+                        </br>
+                        <div class="text-center">
+                            {# <a type="submit" href="{{ path('nn') }}"> se Connecter</a> #}
+                           <button type="submit" class="btn btn-success" href="{{ path('nn') }}"> Se connecter </button>
+                        </div>
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}"
+                        >
+                        </br>
+                    </form>
+                    <div class="text-right">
+                        Vous n'avez pas un compte ? </br>
+                        <a href="{{ path('app_utilisateur_new') }}">S'inscrire</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </td>
+    </div>
+{% endblock %}

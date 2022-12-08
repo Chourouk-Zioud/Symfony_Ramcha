@@ -1,0 +1,31 @@
+{% extends 'base-Front-Login2util.html.twig' %}
+{% block body %}
+
+    {{ form_start(form) }}
+    <div class="row text-center justify-content-center">
+
+    <div class="col-lg-7 mt-5 mt-lg-10 d-flex align-items-stretch">
+    <div class="php-email-form">
+
+        <div class="row">
+            <label class=" control-label" style="color: #0d3057"><h2>{{ form_label(form.verify,"Donner le code envoyé")}}</h2></label>
+            <input class="mdi-border-color form-control text-center"{{ form_widget(form.verify) }}
+            <br>
+            <br>
+            <h5 class="text-center" style="color: #0d3057">{{'Vous avez reçu le code de validation dans un message'|trans|raw}} : <strong>{{ num }}</strong></h5>
+
+        </div>
+        <button class="btn btn-outline-secondary">{{ button_label|default('Valider'|trans|raw) }}</button>
+
+
+        {# <button  class="btn btn-outline-success" value={{ form_widget(form.save)}}
+            <button class="btn btn-outline-success" value={{ form_widget(form.saveAndAdd)}} #}
+        <br>
+        <br>
+        <a href="{{ path('nn') }}">{{ 'Retour à la page de connexion'|trans|raw  }}</a>
+    </div>
+    </div>
+    </div>
+
+{{ form_end(form) }}
+{% endblock %}

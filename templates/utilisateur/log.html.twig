@@ -1,0 +1,29 @@
+
+{% extends 'base-Front-Loginutil.html.twig' %}
+
+
+{% block title %}Utilisateur{% endblock %}
+
+{% block body %}
+    <style>
+        .mostfa{
+
+            font-size: 15px;
+            margin-left: 30% ;
+            margin-right: 30%;
+        }
+    </style>
+<div  class="mostfa">
+    <div class="text-center">
+
+    {#<h3>{{ 'Se connecter'|trans|raw  }}</h3><br> #}
+
+    </div>
+
+    {{ include('utilisateur/_formlog.html.twig') }}
+
+
+
+
+</div>
+{% endblock %}

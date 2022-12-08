@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Devisservice{% endblock %}
+
+{% block body %}
+    <h1>Devisservice</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Iddevisservice</th>
+                <td>{{ devisservice.iddevisservice }}</td>
+            </tr>
+            <tr>
+                <th>Datedevis</th>
+                <td>{{ devisservice.datedevis ? devisservice.datedevis|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td>{{ devisservice.total }}</td>
+            </tr>
+            <tr>
+                <th>Idcommandesevice</th>
+                <td>{{ devisservice.idcommandesevice }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_devisservice_index') }}">back to list</a>
+
+    <a href="{{ path('app_devisservice_edit', {'iddevisservice': devisservice.iddevisservice}) }}">edit</a>
+
+    {{ include('devisservice/_delete_form.html.twig') }}
+{% endblock %}

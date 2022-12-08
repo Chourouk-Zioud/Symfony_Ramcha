@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commandearticle index{% endblock %}
+
+{% block body %}
+    <h1>Commandearticle index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idcommande</th>
+                <th>Modelivraison</th>
+                <th>Statuslivraison</th>
+                <th>Datecommande</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commandearticle in commandearticles %}
+            <tr>
+                <td>{{ commandearticle.idcommande }}</td>
+                <td>{{ commandearticle.modelivraison }}</td>
+                <td>{{ commandearticle.statuslivraison }}</td>
+                <td>{{ commandearticle.datecommande ? commandearticle.datecommande|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_commandearticle_show', {'idcommande': commandearticle.idcommande}) }}">show</a>
+                    <a href="{{ path('app_commandearticle_edit', {'idcommande': commandearticle.idcommande}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

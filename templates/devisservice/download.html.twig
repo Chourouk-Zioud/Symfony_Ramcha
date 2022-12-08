@@ -1,0 +1,23 @@
+{% extends "basepdfdevis.html.twig" %}
+
+{% block body %}
+    <h4>Description du service : </h4>
+    <h5>{{ service.descriptionService }}</h5>
+    </br>
+    </br>
+    </br>
+    </br>
+    <table class="form-control" style="border-color: #0B0F32; border-spacing: 0; text-align: center "  width="530" border="1" >
+        <thead class="form-control">
+        <tr>
+            <td><h4>Service</h4></td>
+            <td><h4>Prix</h4></td>
+        </tr>
+        </thead>
+        <tr>
+            <td><h5>{{ service.getNomservice() }}</h5></td>
+            <td><h6>{{ service.getPrixservice() }}(DT/J)</h6></td>
+        </tr>
+    </table>
+    </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+{% endblock %}

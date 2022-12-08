@@ -1,0 +1,37 @@
+{% extends 'base-frontcours.html.twig' %}
+
+{% block title %} ---------Vous Avis----------- {% endblock %}
+
+{% block body %}
+    <h1 class="text-center" style="color: #1b2658">Vos Avis</h1>
+<br><br>
+    <table class="table text-center table-striped">
+        <thead>
+        <tr>
+
+            <th style="color: #1b2658">Note (/20)</th>
+            <th style="color: #1b2658">Commentaire</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for aviscour in aviscours %}
+            <tr>
+                <td>{{ aviscour.rate }}</td>
+                <td>{{ aviscour.commentaire }}</td>
+
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<div class="text-right">
+    <a class="btn btn-outline-primary " href="{{ path('app_aviscours_new') }}">Donner votre avis</a>
+</div>
+    <br>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>{% block title %}Ramcha Bootstrap Template - Index{% endblock %}</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{{asset('Front-office/img/favicon.png')}}" rel="icon">
+    <link href="{{asset('Front-office/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    {% block css%}
+        <!-- Vendor CSS Files -->
+        <link href="{{asset('Front-office/vendor/aos/aos.css')}}" rel="stylesheet">
+        <link href="{{asset('Front-office/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{asset('Front-office/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+        <link href="{{asset('Front-office/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+        <link href="{{asset('Front-office/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+        <link href="{{asset('Front-office/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+        <link href="{{asset('Front-office/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+
+        <!-- Template Main CSS File -->
+        <link href="{{asset('Front-office/css/style.css')}}" rel="stylesheet">
+
+    {% endblock %}
+
+    <!-- =======================================================
+    * Template Name: Ramcha - v4.9.1
+    * Template URL: https://bootstrapmade.com/Ramcha-free-bootstrap-html-template-corporate/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+<style>
+    .mohsen{
+        background-image: url("https://media.istockphoto.com/id/902957562/photo/ink-blue-color-paint-pouring-in-water-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=cRPqSnxSKsBc5jHTeAvY3s5-6t21mU2aJNlFN2Bfe1I=")
+        background-size: cover;
+    }
+</style>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+        <h1 class="logo me-auto"><a href="index.html">Ramcha</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo me-auto"><img src="{{asset('Front-office/img/logo.png')}}" alt="" class="img-fluid"></a>-->
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto" href="#services">{{ 'Services'|trans|raw }}</a></li>
+                <li><a class="nav-link scrollto" href="#about">{{ 'À propos nous'|trans|raw }}</a></li>
+                <li><a class="getstarted scrollto" href="#contact">{{ 'Se Connecter'|trans|raw }}</a></li>
+
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+    </div>
+</header><!-- End Header -->
+
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                <h1>Ramcha.tn</h1>
+                <h2>{{"à votre service en un clin d'oeil !"|trans|raw}}</h2>
+                <div class="d-flex justify-content-center justify-content-lg-start">
+                    <a href="#contact" class="btn-get-started scrollto">{{ 'Se connecter'|trans|raw }}</a>
+                </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+                <img src="{{asset('Front-office/img/hero-img.png')}}" class="img-fluid animated" alt="">
+            </div>
+        </div>
+    </div>
+</section><!-- End Hero -->
+
+<main id="main">
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients section-bg">
+        <div class="container">
+
+            <div class="row" data-aos="zoom-in">
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="{{asset('Front-office/img/clients/esprit.png')}}" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="{{asset('Front-office/img/clients/mg.png')}}" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="{{asset('Front-office/img/clients/monoprix.png')}}" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="{{asset('Front-office/img/clients/aziza.png')}}" class="img-fluid" alt="">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                    <img src="{{asset('Front-office/img/clients/carrefour.png')}}" class="img-fluid" alt="">
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Cliens Section -->
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>{{'À PROPOS NOUS'|trans|raw}}</h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <p>
+                        <strong>{{'Vous êtes à la recherche de'|trans|raw}}:</strong>
+
+                    </p>
+                    <ul>
+                        <li><i class="ri-check-double-line"></i> {{'Aide pour le ménage' |trans|raw}}</li>
+                        <li><i class="ri-check-double-line"></i> {{"S'occuper de personnes âgées"|trans|raw}}</li>
+                        <li><i class="ri-check-double-line"></i> {{ 'Faire garder les enfants'|trans|raw}} </li>
+                        <li><i class="ri-check-double-line"></i> {{ 'Jardinage' |trans|raw}} </li>
+                        <li><i class="ri-check-double-line"></i> {{ 'Petit bricolage'|trans|raw }} </li>
+
+                    </ul>
+                    <p>
+
+                       <strong> {{'Mais vous ne savez pas comment trouver une personne de confiance et qualifiée ?'|trans|raw}}</strong>
+                    </p>
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0">
+                    <p class="text-center">
+                        <strong> Ramcha.tn </strong> <br>
+                        {{"Est une service à domicile dédié aux handicapées et des personnes éloignées des commodités, qui injecte une solide dose d’efficacité et répond à tous vos besoins !"|trans|raw}}<br> <br>
+
+                        <strong> Ramcha.tn </strong> <br>
+                        {{"Vous offre aussi l'option de la création des opportunités de travail et de former des ouvriers !"|trans|raw}}
+
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section><!-- End About Us Section -->
+
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+                    <img src="{{asset('Front-office/img/skillsp.png')}}" class="img-fluid" alt="" >
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
+                    <h3>{{"C'est à vous de choisir !"|trans|raw}}</h3>
+
+                    <div class="skills-content">
+
+                        <div class="progress">
+                            <span class="skill">{{ 'Services'|trans|raw }} <i class="val">100%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <span class="skill">{{ 'Articles'|trans|raw }} <i class="val">90%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <span class="skill">{{ 'Formations'|trans|raw }}<i class="val">75%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>{{ 'Services'|trans|raw }}</h2>
+                <p>{{'Tous les services sont à votre disposition !'|trans|raw}}</p>
+            </div>
+
+
+            <div class="row">
+                <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                        <h4><a href=""></a></h4>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bx-file"></i></div>
+                        <h4><a href=""></a></h4>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bx-tachometer"></i></div>
+                        <h4><a href=""></a></h4>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bx-layer"></i></div>
+                        <h4><a href=""> </a></h4>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Services Section -->
+
+
+
+    <!-- ======= Portfolio Section ======= -->
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>{{'Merci pour votre confiance'|trans|raw}}</h2>
+            </div>
+
+            <div class="row">
+
+
+
+
+                        {% block body %}
+                        <div class="form-group">
+                            <label for="name">{{ 'Subject' |trans|raw}}</label>
+                            <input type="text" class="form-control border-light" name="subject" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">{{ 'Message'|trans|raw }}</label>
+                            <textarea class="form-control border-light" name="message" rows="10" required></textarea>
+                        </div>
+                        {% endblock  %}
+
+
+            </div>
+
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>Ramcha</h3>
+                    <p>
+                        {{ 'Tunis, Ariana' |trans|raw}}  <br>
+                        {{ 'Hay ghazella, 8952'|trans|raw }}<br>
+                         <br>
+                        <strong>{{ 'Phone' |trans|raw}} :</strong> +216 98 558 669<br>
+                        <strong>{{ 'Email'|trans|raw }} :</strong> Ramcha@gmail.com<br>
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>{{ 'SUIVEZ-NOUS'|trans|raw }}</h4>
+                    <div class="social-links mt-3">
+                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Ramcha</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/Ramcha-free-bootstrap-html-template-corporate/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+{% block js %}
+    <!-- Vendor JS Files -->
+    <script src="{{asset('Front-office/vendor/aos/aos.js')}}"></script>
+    <script src="{{asset('Front-office/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('Front-office/vendor/glightbox/js/glightbox.min.js')}}"></script>
+    <script src="{{asset('Front-office/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+    <script src="{{asset('Front-office/vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{asset('Front-office/vendor/waypoints/noframework.waypoints.js')}}"></script>
+    <script src="{{asset('Front-office/vendor/php-email-form/validate.js')}}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{{asset('Front-office/js/main.js')}}"></script>
+{% endblock %}
+
+</body>
+
+</html>

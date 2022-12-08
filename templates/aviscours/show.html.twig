@@ -1,0 +1,29 @@
+{% extends 'base-frontcours.html.twig' %}
+
+{% block title %}Aviscours{% endblock %}
+
+{% block body %}
+    <h1>Aviscours</h1>
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Rate</th>
+                <td>{{ aviscour.rate }}</td>
+            </tr>
+
+
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ aviscour.commentaire }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_aviscours_index') }}">back to list</a>
+
+    <a href="{{ path('app_aviscours_edit', {'idaviscours': aviscour.idaviscours}) }}">edit</a>
+
+    {{ include('aviscours/_delete_form.html.twig') }}
+{% endblock %}

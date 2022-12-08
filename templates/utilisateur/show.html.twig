@@ -1,0 +1,61 @@
+{% extends 'base-Backutil.html.twig' %}
+
+{% block title %}Utilisateur{% endblock %}
+
+{% block body %}
+    <h1 style="color: #0d3057" class="text-center">{{ 'Utilisateur'|trans|raw  }} : {{ utilisateur.nomuser }} {{ utilisateur.prenomuser }}</h1>
+<div class="card border border-primary">
+    <div class="card-body  p-5">
+    <table class="table">
+        <tbody>
+
+             <tr>
+            <th style="color: #0d3057">{{ 'CIN'|trans|raw }}</th>
+            <td>{{ utilisateur.cinuser }}</td>
+             </tr>
+            <tr>
+                <th style="color: #0d3057">{{ 'Nom'|trans|raw }}</th>
+                <td>{{ utilisateur.nomuser }}</td>
+            </tr>
+            <tr>
+                <th style="color: #0d3057">{{ 'Prenom'|trans|raw }}</th>
+                <td>{{ utilisateur.prenomuser }}</td>
+            </tr>
+            <tr>
+                <th style="color: #0d3057">{{ 'Date de naissance'|trans|raw }}</th>
+                <td>{{ utilisateur.ddnuser ? utilisateur.ddnuser|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th style="color: #0d3057">{{ 'Adresse'|trans|raw }}</th>
+                <td>{{ utilisateur.adressuser }}</td>
+            </tr>
+             <tr>
+                 <th style="color: #0d3057">{{ 'Code postal'|trans|raw }}</th>
+                 <td>{{ utilisateur.codepostaluser }}</td>
+             </tr>
+            <tr>
+                <th style="color: #0d3057">{{ 'Num Tel'|trans|raw }}</th>
+                <td>{{ utilisateur.numuser }}</td>
+            </tr>
+            <tr>
+                <th style="color: #0d3057">{{ 'Email'|trans|raw }}</th>
+                <td>{{ utilisateur.loginuser }}</td>
+            </tr>
+
+             <tr>
+                 <th style="color: #0d3057">{{ 'Image'|trans|raw }}</th>
+                 <td><img src={{ asset('uploads/images/products/'~ utilisateur.imageName)}} width="40%"></td>
+             </tr>
+        </tbody>
+    </table>
+<br>
+        <br>
+        <button class="btn btn-primary btn-rounded btn-icon">
+            <a href="{{ path('app_utilisateur_index') }}" style="color: white"><i class="ti-back-left btn-icon-prepend"></i></a></button>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

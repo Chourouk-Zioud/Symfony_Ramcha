@@ -1,0 +1,60 @@
+{% extends 'base_back_kais.html.twig' %}
+
+{% block title %}Magasin index{% endblock %}
+
+{% block body %}
+    <h1>Magasin index</h1>
+
+    <table class="table table-striped table-hover" id="t">
+        <thead>
+            <tr>
+                <th>Idmagasin</th>
+                <th>Nommagasin</th>
+                <th>Adressemagasin</th>
+                <th>Emailmagasin</th>
+                <th>Telmagasin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+        {% for magasin in magasins %}
+            <tr>
+                <td>{{ magasin.idmagasin }}</td>
+                <td>{{ magasin.nommagasin }}</td>
+                <td>{{ magasin.adressemagasin }}</td>
+                <td>{{ magasin.emailmagasin }}</td>
+                <td>{{ magasin.telmagasin }}</td>
+                <td>
+                    <a href="{{ path('app_magasin_show_back', {'idmagasin': magasin.idmagasin}) }}">show</a>
+                    <a href="{{ path('app_magasin_edit_back', {'idmagasin': magasin.idmagasin}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <form method="post" >
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="search" id="myInput">
+
+        </div>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+
+
+    <a href="{{ path('app_magasin_new_back') }}">Create new</a>
+{% endblock %}

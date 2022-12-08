@@ -1,0 +1,59 @@
+{% extends 'base-frontcours.html.twig' %}
+{%block title %}La liste des cours {% endblock %}
+{% block body %}
+<section id="portfolio" class="portfolio">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>{{  'Les Cours Disponibles'|trans|raw }} </h2>
+            <p>{{ 'Une large sélection de cours' |trans|raw }} </p>
+            <p>  {{  'Choisissez parmi 213 000 vidéos de cours en ligne'|trans|raw }}</p>
+            <p>{{ 'De nouveaux cours sont ajoutés tous les mois' |trans|raw }} </p>
+        </div>
+        <style>
+            img{
+                height: 200px;
+                width: 150px;
+            }
+            .eta{text-align: center}
+        </style>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+            {% for cours_first in cours_firsts %}
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-img"><img src={{ asset('uploads/images/products/'  ~ cours_first.imageName) }} width="40%"></div>
+                <div class="portfolio-info">
+                    <h4>{{  cours_first.nomcours }}</h4>
+                    <h4>{{ cours_first.categoriecours  }}</h4>
+                    <h4>{{ cours_first.sujetcours  }}</h4>
+                    <h4>{{ cours_first.niveaucours  }}</h4>
+
+
+                    <a href="{{ path('app_aviscours_index') }}">{{  'Donner vos avis' |trans|raw }} </a><br>
+                    <a href="{{ asset('13.SpringBatch.pdf') }}">{{  'Accéder au cours' |trans|raw }} </a>
+                    {#{% if cours_first.nomcours == "Spring" %}
+                        <a href="{{ asset('13.SpringBatch.pdf') }}">{{  'Accéder au cours' |trans|raw }} </a>
+                    {% elseif cours_first.nomcours=="Confiance en soi" %}
+                        <a href="{{ asset('confianceensoi.pdf') }}">{{  'Accéder au cours' |trans|raw }}</a>
+                    {% elseif cours_first.nomcours=="Instrument" %}
+                        <a href="{{ asset('les_instruments_de_musique.pdf') }}">{{  'Accéder au cours' |trans|raw }}</a>
+                    {% else %}
+                        <a href="{{ asset('') }}">{{  'Accéder au cours' |trans|raw }}</a>
+                    {% endif %}  #}
+
+                    <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section><!-- End Portfolio Section -->
+    <br> <div class="d-flex justify-content-center">
+    {%  do cours_firsts.setPageRange(2) %}
+    {{ knp_pagination_render(cours_firsts,'Pagination.html.twig') }}
+</div>
+
+{% endblock %}

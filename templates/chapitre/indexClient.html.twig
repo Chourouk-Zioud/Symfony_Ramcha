@@ -1,0 +1,35 @@
+{% extends 'base-frontcours.html.twig' %}
+
+{% block title %}Chapitre index{% endblock %}
+
+{% block body %}
+    <h1>Liste des Chapitre </h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th>Nomchapitre</th>
+            <th>Languechapitre</th>
+            <th>Typechapitre</th>
+            {#<th>actions</th>  #}
+        </tr>
+        </thead>
+        <tbody>
+        {% for chapitre in chapitre%}
+            <tr>
+                <td>{{ chapitre.nomchapitre }}</td>
+                <td>{{ chapitre.languechapitre }}</td>
+                <td>{{ chapitre.typechapitre }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('app_cours_new') }}">Choisir</a>
+{% endblock %}

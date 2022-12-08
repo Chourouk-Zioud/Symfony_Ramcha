@@ -1,0 +1,45 @@
+{% extends "basepdf.html.twig" %}
+
+{% block body %}
+    <body>
+        <table class="form-control" width="600px">
+            <tr>
+                <td><h4>Client : </h4></td><td> {{ u.getNomuser() }} {{ u.getPrenomuser() }}</td>
+                <td><h4>Adresse client : </h4></td><td> {{ u.getAdressuser() }}</td>
+            </tr>
+            <tr>
+                <td><h4>Numéro : </h4></td><td> {{ u.getNumuser() }}</td>
+                <td><h4>Date du commande : </h4></td><td> {{ c.getDatecommande() }}</td>
+            </tr>
+            <tr>
+                <td><h4>Article : </h4></td><td>{{ a.nomarticle }}</td>
+                <td><h4>Marque : </h4></td><td> {{ a.marquearticle }}</td>
+            </tr>
+            <tr>
+                <td><h4>Mode de livraison : </h4></td><td> {{ c.getModelivraison() }}</td>
+            </tr>
+        </table>
+        <br>
+        <table class="form-control" style="border-color: #0B0F32; border-spacing: 0; text-align: center "  width="530" border="1" >
+            <thead class="form-control">
+            <tr>
+                <td><h4>Type de l'article</h4></td>
+                <td><h4>Prix (DT)</h4></td>
+                <td><h4>Frais de livraison</h4></td>
+            </tr>
+            </thead>
+            <tr>
+                <td><h6>{{ a.typearticle }}</h6></td>
+                <td><h6>{{ a.prixarticle }}</h6></td>
+                <td><h6>7DT</h6></td>
+            </tr>
+            <tr>
+                <td style="border-left: 0px; border-right: 0px; border-bottom: 0px; border-bottom-color: rgba(255,255,255,0); border-spacing: 0 "></td>
+                <td style=" border-bottom: 0px;" ></td>
+                <td><h4>Total</h4></td>
+                <td><h6>{{ a.prixarticle + 7 }}</h6></td>
+            </tr>
+        </table>
+    </body>
+    <br><br><br><br><br> <br><br><br><br>
+{% endblock %}

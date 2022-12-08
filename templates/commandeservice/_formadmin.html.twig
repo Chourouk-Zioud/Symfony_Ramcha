@@ -1,0 +1,11 @@
+{{ form_start(form,{'attr' : {'novalidate':'novalidate'}}) }}
+
+        <div>{{ form_label(form.statuscommande, "Status de la commande") }}</div>
+        <div>{{ form_widget(form.statuscommande,{ 'attr': {'class': 'form-control mb-2'} }) }}</div>
+        <div>{{ form_errors(form.statuscommande) }}</div>
+        <br>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-inverse-success btn-fw" ><i class="ti-upload btn-icon-prepend">  </i> {{ button_label|default('Passer la commande') }}</button>
+        </div>
+
+{{ form_end(form) }}

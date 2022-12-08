@@ -1,0 +1,46 @@
+{% extends "basepdf.html.twig" %}
+
+{% block body %}
+    <body>
+
+
+        <table class="form-control" width="350px">
+                <tr>
+                    <td><h4>Client : </h4></td><td>{{ u.getNomuser() }} {{ u.getPrenomuser() }}</td>
+                </tr>
+                <tr>
+                    <td><h4>Adresse client : </h4></td><td>{{ u.getAdressuser() }}</td>
+                </tr>
+                <tr>
+                    <td><h4>Numéro :</h4></td><td>(+216) {{ u.getNumuser() }}</td>
+                </tr>
+                <tr>
+                    <td><h4>Date du commande : </h4></td><td>{{ c.getDatecommandeservice() }}</br></td>
+                </tr>
+                <tr>
+                    <td><h4>Date requis : </h4></td><td>{{ c.getDaterequis() ? c.getDaterequis()|date('Y-m-d') : '' }}</td>
+                </tr>
+        </table>
+
+        </br>
+        </br>
+        <table class="form-control" style="border-color: #0B0F32; border-spacing: 0; text-align: center "  width="530" border="1" >
+            <thead class="form-control">
+            <tr>
+                <td><h4>Service</h4></td>
+                <td><h4>Prix</h4></td>
+                <td><h4>Nombre de jours</h4></td>
+                <td><h4>Total</h4></td>
+            </tr>
+            </thead>
+            <tr>
+                <td><h5>{{ s.getNomservice() }}</h5></td>
+                <td><h6>{{ s.getPrixservice() }}(DT/J)</h6></td>
+                <td><h6>{{ c.getNbjour() }}</h6></td>
+                <td><h6>{{ c.getNbjour()*s.getPrixservice()*1.1 }} DT</h6></td>
+            </tr>
+        </table>
+    </body>
+    <br><br><br><br><br><br><br><br><br><br>
+
+{% endblock %}

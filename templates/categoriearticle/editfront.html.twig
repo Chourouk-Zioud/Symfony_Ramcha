@@ -1,0 +1,13 @@
+{% extends 'base_front_kais.html.twig' %}
+
+{% block title %}Edit Categoriearticle{% endblock %}
+
+{% block body %}
+    <h1>Edit Categoriearticle</h1>
+
+    {{ include('categoriearticle/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_categoriearticle_index_back') }}">back to list</a>
+
+    {{ include('categoriearticle/_delete_form_front.html.twig') }}
+{% endblock %}
