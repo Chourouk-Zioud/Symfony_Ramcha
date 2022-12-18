@@ -1,6 +1,0 @@
-<div class="d-flex justify-content-center">
-    <form method="post" action="{{ path('app_cours_first_delete', {'idfirst': cours_first.idfirst}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ cours_first.idfirst) }}">
-        <button class="btn btn-inverse-secondary">Delete</button>
-    </form>
-</div>

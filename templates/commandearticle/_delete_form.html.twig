@@ -1,8 +1,0 @@
-<div class="text-center">
-    <div class="form-group">
-        <form method="post" action="{{ path('app_commandearticle_eletecmd', {'idcommande': commandearticle.idcommande, 'a': a}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ commandearticle.idcommande) }}">
-            <button class="btn btn-danger">{{ 'Delete'|trans|raw }}</button>
-        </form>
-    </div>
-</div>
