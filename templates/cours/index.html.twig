@@ -1,0 +1,45 @@
+{% extends 'base-backcours.html.twig' %}
+
+{% block title %}Cours index{% endblock %}
+
+{% block body %}
+    <h1>Cours index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idcours</th>
+                <th>Nomcours</th>
+                <th>Categoriecours</th>
+                <th>Sujetcours</th>
+                <th>Niveaucours</th>
+                {# <th>Chapitreclass</th>  #}
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cour in cours %}
+            <tr>
+                <td>{{ cour.idcours }}</td>
+                <td>{{ cour.nomcours }}</td>
+                <td>{{ cour.categoriecours }}</td>
+                <td>{{ cour.sujetcours }}</td>
+                <td>{{ cour.niveaucours }}</td>
+                {# <td>{{cour.Chapitre.nomchapitre  }}</td> #}
+
+
+                <td>
+                    <a href="{{ path('app_cours_show', {'idcours': cour.idcours}) }}">show</a>
+                    <a href="{{ path('app_cours_edit', {'idcours': cour.idcours}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cours_new') }}">Create new</a>
+{% endblock %}

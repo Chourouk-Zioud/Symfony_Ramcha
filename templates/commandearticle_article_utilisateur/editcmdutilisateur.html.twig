@@ -1,0 +1,17 @@
+{% extends 'base-front-cmd.html.twig' %}
+
+{% block title %}Edit Commandearticle{% endblock %}
+
+{% block body %}
+    <div class="text-center">
+    <h2>{{ 'Modification du commande'|trans|raw }}</h2>
+    </br>
+        <h3>{{'Commande numéro'|trans|raw}} : {{ commandearticle.idcommande }}</h3>
+    {{ include('commandearticle/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+
+    <a href="{{ path('app_commandearticle_article_utilisateur_cmdutil',{'id': a}) }}">{{ 'back to list'|trans|raw }}</a>
+    <h1></h1>
+    {{ include('commandearticle/_delete_form.html.twig') }}
+
+</div>
+{% endblock %}

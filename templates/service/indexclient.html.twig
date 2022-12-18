@@ -1,0 +1,53 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Service index{% endblock %}
+
+{% block body %}
+
+
+<style>
+   img{
+       height:400px;
+       width: 300px;
+   }
+   .eta{text-align:center}
+</style>
+    <section id="portfolio" class="portfolio">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>{{ 'Nos services'|trans|raw }}</h2>
+                <p>{{ 'Vous pouvez consulter nos services ici et n hesitez pas de passer une commande notre objectif est de faciliter votre vie'|trans|raw }} </p>
+            </div>
+
+
+            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                {% for service in services %}
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-img"><img src={{ asset('uploads/images/products/'  ~ service.imageName) }} width="40%"></div>
+                    <div class="portfolio-info">
+                        <h4>{{  service.nomservice }}</h4>
+                        <h4>{{ service.prixservice  }} DT </h4>
+                        <h4>{{ service.descriptionservice  }}</h4>
+                        <h4>{{ service.disponibiliteservice  }}</h4>
+
+                            <a href="{{ path('app_commandeservice_new', {'idservice': service.idservice}) }}">{{ 'Commander ce service'|trans|raw }}</a>
+
+                        <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </section><!-- End Portfolio Section -->
+
+
+    <div class="navigation">
+        {{ knp_pagination_render(services) }}
+    </div>
+
+
+{% endblock %}

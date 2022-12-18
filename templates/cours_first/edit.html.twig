@@ -1,0 +1,27 @@
+{% extends 'base-backcours.html.twig' %}
+
+{% block title %}Edit CoursFirst{% endblock %}
+
+{% block body %}
+   <br>
+    <h1 class="text-center" style="color: #1b2658">Modifier ce cours </h1>
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+<div style="width:50%;margin-top: 2rem;margin-left: auto;margin-right: auto;">
+    <div class="card border border-primary">
+        <div class="card-body  p-5">
+
+
+    {{ include('cours_first/_form.html.twig') }}
+    {{ include('cours_first/_delete_form.html.twig') }}
+            <br>
+            <div class="text-left">
+                <div class="form-group">
+                    <form action="{{ path("app_cours_first_index") }}">
+                        <button class="btn btn-primary btn-rounded btn-icon"><i class="ti-back-left btn-icon-prepend"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div></div>
+
+</div>
+{% endblock %}

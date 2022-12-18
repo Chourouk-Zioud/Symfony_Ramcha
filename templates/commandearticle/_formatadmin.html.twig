@@ -1,0 +1,10 @@
+{{ form_start(form,{'attr' : {'novalidate':'novalidate'}}) }}
+
+    <div>{{ form_label(form.statuslivraison, "Status de livraison") }}</div>
+    <div>{{ form_widget(form.statuslivraison,{ 'attr': {'class': 'form-control mb-2'} } ) }}</div>
+    <div>{{ form_errors(form.statuslivraison) }}</div>
+    <br>
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-inverse-success btn-fw"><i class="ti-upload btn-icon-prepend">  </i> {{ button_label|default('Passer la commande') }}</button>
+    </div>
+{{ form_end(form) }}

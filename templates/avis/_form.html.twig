@@ -1,0 +1,16 @@
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+
+<div class="form-group">
+    <label for="exampleInputName1">Note </label>
+    <input type="number" class="form-control" id="exampleInputName1" placeholder="Note service" {{form_widget(form.noteservice)}}
+    {{form_errors(form.noteservice)}}
+</div>
+<div class="form-group">
+    <label for="exampleInputName1">Detail  </label>
+    <input type="text" class="form-control" id="exampleInputName1" placeholder="detail avis service" {{form_widget(form.detailavisservice)}}
+    {{form_errors(form.detailavisservice)}}
+</div>
+
+<button class="btn btn-primary mr-2">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

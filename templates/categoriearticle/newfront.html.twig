@@ -1,0 +1,11 @@
+{% extends 'base_front_kais.html.twig' %}
+
+{% block title %}New Categoriearticle{% endblock %}
+
+{% block body %}
+    <h1>Create new Categoriearticle</h1>
+
+    {{ include('categoriearticle/_form.html.twig') }}
+
+    <a href="{{ path('app_categoriearticle_index_back') }}">back to list</a>
+{% endblock %}

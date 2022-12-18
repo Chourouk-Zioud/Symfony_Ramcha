@@ -1,0 +1,19 @@
+<table class="align-content-center">
+    {{ form_start(form,{'attr' : {'novalidate':'novalidate'}}) }}
+        <div class="text-center">
+            <label class="exampleSelectGender"> {{ form_label(form.daterequis, "Date requis") }}</label>
+            {{ form_widget(form.daterequis) }}
+            <label class="exampleSelectGender">{{ form_errors(form.daterequis) }}</label>
+        </div>
+        <div class="text-center">
+            <label class="exampleSelectGender"> {{ form_label(form.nbjour, "Nombre du jour") }}</label>
+        </br>
+            {{ form_widget(form.nbjour) }}
+            <label class="exampleSelectGender">{{ form_errors(form.nbjour) }}</label>
+        </div>
+    </br>
+        <div class="text-center">
+            <button class="btn btn-outline-primary">{{ button_label|default('Passer la commande') }}</button>
+        </div>
+    {{ form_end(form) }}
+</table>

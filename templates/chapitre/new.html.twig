@@ -1,0 +1,11 @@
+{% extends 'base-backcours.html.twig' %}
+
+{% block title %}New CoursFirst{% endblock %}
+
+{% block body %}
+    <h1 class="text-center" style="color: #1b2658">Ajouter un chapitre</h1>
+
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+                {{ include('chapitre/_form.html.twig') }}
+
+{% endblock %}

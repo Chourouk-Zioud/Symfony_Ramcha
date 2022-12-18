@@ -1,0 +1,38 @@
+{% extends 'base-backcours.html.twig' %}
+
+{% block title %}Cours{% endblock %}
+
+{% block body %}
+    <h1>Cours</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idcours</th>
+                <td>{{ cour.idcours }}</td>
+            </tr>
+            <tr>
+                <th>Nomcours</th>
+                <td>{{ cour.nomcours }}</td>
+            </tr>
+            <tr>
+                <th>Categoriecours</th>
+                <td>{{ cour.categoriecours }}</td>
+            </tr>
+            <tr>
+                <th>Sujetcours</th>
+                <td>{{ cour.sujetcours }}</td>
+            </tr>
+            <tr>
+                <th>Niveaucours</th>
+                <td>{{ cour.niveaucours }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cours_index') }}">back to list</a>
+
+    <a href="{{ path('app_cours_edit', {'idcours': cour.idcours}) }}">edit</a>
+
+    {{ include('cours/_delete_form.html.twig') }}
+{% endblock %}

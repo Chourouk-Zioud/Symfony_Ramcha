@@ -1,0 +1,10 @@
+{% extends 'base-front-passcmd.html.twig' %}
+
+{% block title %}
+<div class="section-title">
+    <h2>Votre commande est enregistrée avec succès</h2>
+</div>
+{% endblock %}
+{% block body %}
+    <a href="{{ path('downloadpdf', {'commande': idcommande,'utilisateur': user,'art': art}) }}">Télécharger la facture</a>
+{% endblock %}

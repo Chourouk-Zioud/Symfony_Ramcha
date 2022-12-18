@@ -1,0 +1,12 @@
+{% extends 'base-frontcours.html.twig' %}
+
+{% block title %}New Aviscours{% endblock %}
+
+{% block body %}
+    <h1>Create new Aviscours</h1>
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+    {{ include('aviscours/_form.html.twig') }}
+
+
+
+{% endblock %}

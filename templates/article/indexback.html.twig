@@ -1,0 +1,67 @@
+{% extends 'base_back_kais.html.twig' %}
+
+{% block title %}Articles {% endblock %}
+
+{% block body %}
+
+    <table class="table table-striped table-hover" id="t">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>magasin</th>
+                <th>Categorie</th>
+                <th>Nom</th>
+                <th>Marque</th>
+                <th>Type</th>
+                <th>Disponibilite</th>
+                <th>Couleur</th>
+                <th>Prix</th>
+                <th>Taille</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+        {% for article in articles %}
+            <tr>
+                <td><img src={{ asset('uploads/image/art/'  ~ article.imageName) }} width="40%"></td>
+                <td>{{ article.magasin }}</td>
+                <td>{{ article.categorie }}</td>
+                <td>{{ article.nomarticle }}</td>
+                <td>{{ article.marquearticle }}</td>
+                <td>{{ article.typearticle }}</td>
+                <td>{{ article.disponibilitearticle }}</td>
+                <td>{{ article.couleurarticle }}</td>
+                <td>{{ article.prixarticle }}</td>
+                <td>{{ article.taillearticle }}</td>
+                <td>{{ article.descriptionarticle }}</td>
+                <td>
+                    <a href="{{ path('app_article_show_back', {'idarticle': article.idarticle}) }}">show</a>
+                    <a href="{{ path('app_article_edit_back', {'idarticle': article.idarticle}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+<br>
+    <div class="navigation">
+    {{ knp_pagination_render(articles) }}
+    </div>
+
+    <a href="{{ path('app_article_new_back') }}">Create new</a>
+{% endblock %}

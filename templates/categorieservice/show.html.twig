@@ -1,0 +1,30 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Categorieservice{% endblock %}
+
+{% block body %}
+    <h1>Categorieservice</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idcategorieservice</th>
+                <td>{{ categorieservice.idcategorieservice }}</td>
+            </tr>
+            <tr>
+                <th>Nomcategorieservice</th>
+                <td>{{ categorieservice.nomcategorieservice }}</td>
+            </tr>
+            <tr>
+                <th>Descriptioncategorieservice</th>
+                <td>{{ categorieservice.descriptioncategorieservice }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_categorieservice_index') }}">return</a>
+
+    <a href="{{ path('app_categorieservice_edit', {'idcategorieservice': categorieservice.idcategorieservice}) }}">Modifier</a>
+
+    {{ include('categorieservice/_delete_form.html.twig') }}
+{% endblock %}

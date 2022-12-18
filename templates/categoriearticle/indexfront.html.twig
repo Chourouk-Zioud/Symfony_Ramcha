@@ -1,0 +1,37 @@
+{% extends 'base_front_kais.html.twig' %}
+
+{% block title %}Categoriearticle index{% endblock %}
+
+{% block body %}
+    <h1>Categoriearticle index</h1>
+
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                <th>Idcategorie</th>
+                <th>Libelle</th>
+                <th>Discription</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categoriearticle in categoriearticles %}
+            <tr>
+                <td>{{ categoriearticle.idcategorie }}</td>
+                <td>{{ categoriearticle.libelle }}</td>
+                <td>{{ categoriearticle.discription }}</td>
+                <td>
+                    <a href="{{ path('app_categoriearticle_show_back', {'idcategorie': categoriearticle.idcategorie}) }}">show</a>
+                    <a href="{{ path('app_categoriearticle_edit_back', {'idcategorie': categoriearticle.idcategorie}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_categoriearticle_new_back') }}">Create new</a>
+{% endblock %}

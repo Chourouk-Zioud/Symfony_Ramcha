@@ -1,0 +1,83 @@
+{% extends 'base-front-cmd.html.twig' %}
+
+{% block title %}CommandeserviceServiceUtilisateur index{% endblock %}
+
+{% block body %}
+    <h1 class="text-center" style="color: #1b2658">{{ 'Liste des commandes des services'|trans|raw }}</h1>
+    </br>
+    <form method="post">
+        <div class="text-center" >
+            <input class="border-light form-control text-center" type="text" name="search" id="myInput" placeholder="Chercher...">
+        </div>
+    </form>
+    <br>
+    <table  class="table text-center table-striped" border="1" id="t" >
+        <thead >
+        <tr>
+            <th style="color: #1b2658">{{ 'Date du commande'|trans|raw }}</th>
+            <th style="color: #1b2658">{{ 'Nom service'|trans|raw }}</th>
+            <th style="color: #1b2658">{{ 'Date requis'|trans|raw }}</th>
+            <th style="color: #1b2658">{{ 'Nombre de jour'|trans|raw }}</th>
+            <th style="color: #1b2658">{{ 'Status de la commande'|trans|raw }}</th>
+            <th style="color: #1b2658">{{ 'Prix service(par jour)'|trans|raw }}</th>
+            <th style="color: #1b2658">{{ 'Totale Hors TVA'|trans|raw }}</th>
+            <th style="color: #1b2658">{{ 'Totale'|trans|raw }}</th>
+            <th style="color: #1b2658">{{ 'Facture'|trans|raw }}</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        {% for commandeservice_service_utilisateur in commandeservice_service_utilisateurs %}
+            <tr>
+                <td>{{ commande.find(commandeservice_service_utilisateur.idcommandeservice).getDatecommandeservice() }}</td>
+                <td>{{ service.find(commandeservice_service_utilisateur.idservice).getNomservice() }}</td>
+                <td>{{ commande.find(commandeservice_service_utilisateur.idcommandeservice).getDaterequis() ? commande.find(commandeservice_service_utilisateur.idcommandeservice).getDaterequis()|date ('Y-m-d'):'' }}</td>
+                <td>{{ commande.find(commandeservice_service_utilisateur.idcommandeservice).getNbjour() }}</td>
+                <td>{{ commande.find(commandeservice_service_utilisateur.idcommandeservice).getStatuscommande() }}</td>
+                <td>{{ service.find(commandeservice_service_utilisateur.idservice).getPrixservice() }}</td>
+                <td>{{ service.find(commandeservice_service_utilisateur.idservice).getPrixservice()*commande.find(commandeservice_service_utilisateur.idcommandeservice).getNbjour() }}</td>
+                <td>{{ service.find(commandeservice_service_utilisateur.idservice).getPrixservice()*commande.find(commandeservice_service_utilisateur.idcommandeservice).getNbjour()*(1.1) }}</td>
+                <td><a href="{{ asset('uploads/brochures/'~ facture.findfactureser(commandeservice_service_utilisateur.idcommandeservice).getFactureservicepdf()~'service.pdf')}}"/>PDF</a></td>
+                {% if commande.find(commandeservice_service_utilisateur.idcommandeservice).getStatuscommande()=="Deja traité" %}
+                    <td style="color: #1b2658" colspan="2">
+                        {{'Commande traitée pas de modification'|trans|raw}}
+                    </td>
+                {% elseif commande.find(commandeservice_service_utilisateur.idcommandeservice).getStatuscommande()=="Rejetée" %}
+                    <td style="color: #1b2658" colspan="2">
+                        {{'Commande rejetée (pas de modification)'|trans|raw}}
+                    </td>
+                {% else %}
+                    <td >
+                        <a  href="{{ path('app_commandeservice_service_utilisateur_editsercmd', {'idcommandeservice': commandeservice_service_utilisateur.idcommandeservice,'a':user.find(commandeservice_service_utilisateur.idutilisateur).getIduser()}) }}">{{ 'Modifier la commande'|trans|raw }}</a>
+                    </td>
+                    <td>
+                        <a style="color: darkred" href="{{ path('app_commandeservice_service_utilisateur_editsercmd', {'idcommandeservice': commandeservice_service_utilisateur.idcommandeservice,'a':user.find(commandeservice_service_utilisateur.idutilisateur).getIduser()}) }}">{{ 'Supprimer la commande'|trans|raw }}</a>
+                    </td>
+                {% endif %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">{{ 'no records found'|trans|raw }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </br>
+    </br>
+    <div class="d-flex justify-content-center">
+        {% do commandeservice_service_utilisateurs.setPageRange(2) %}
+        {{ knp_pagination_render(commandeservice_service_utilisateurs, 'pagination.html.twig') }}
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+{% endblock %}

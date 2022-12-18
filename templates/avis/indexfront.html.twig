@@ -1,0 +1,45 @@
+{% extends 'base_front_kais.html.twig' %}
+
+{% block title %}Avis index{% endblock %}
+
+{% block body %}
+    <h1>Avis index</h1>
+
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                <th>Idavis</th>
+                <th>Detailavisservice</th>
+                <th>Noteservice</th>
+                <th>Idarticle</th>
+                <th>Iduser</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for avi in avis %}
+            <tr>
+                <td>{{ avi.idavis }}</td>
+                <td>{{ avi.detailavisservice }}</td>
+                <td>{{ avi.noteservice }}</td>
+                <td>{{ avi.idarticle }}</td>
+                <td>{{ avi.iduser }}</td>
+                <td>
+                    <a href="{{ path('app_avis_show_front', {'idavis': avi.idavis}) }}">show</a>
+                    <a href="{{ path('app_avis_edit_front', {'idavis': avi.idavis}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation">
+        {{ knp_pagination_render(avi) }}
+    </div>
+
+    <a href="{{ path('app_avis_new_front') }}">Create new</a>
+
+{% endblock %}

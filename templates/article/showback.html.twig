@@ -1,0 +1,50 @@
+{% extends 'base_back_kais.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <h1>Article</h1>
+
+    <table class="table table-dark">
+        <tbody>
+            <tr>
+                <th>Nomarticle</th>
+                <td>{{ article.nomarticle }}</td>
+            </tr>
+            <tr>
+                <th>Marquearticle</th>
+                <td>{{ article.marquearticle }}</td>
+            </tr>
+            <tr>
+                <th>Typearticle</th>
+                <td>{{ article.typearticle }}</td>
+            </tr>
+            <tr>
+                <th>Disponibilitearticle</th>
+                <td>{{ article.disponibilitearticle }}</td>
+            </tr>
+            <tr>
+                <th>Couleurarticle</th>
+                <td>{{ article.couleurarticle }}</td>
+            </tr>
+            <tr>
+                <th>Prixarticle</th>
+                <td>{{ article.prixarticle }}</td>
+            </tr>
+            <tr>
+                <th>Taillearticle</th>
+                <td>{{ article.taillearticle }}</td>
+            </tr>
+            <tr>
+                <th>Descriptionarticle</th>
+                <td>{{ article.descriptionarticle }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_article_index_back') }}">back to list</a>
+
+    <a href="{{ path('app_article_edit_back', {'idarticle': article.idarticle}) }}">edit</a>
+
+    {{ include('article/_delete_form_back.html.twig') }}
+{% endblock %}

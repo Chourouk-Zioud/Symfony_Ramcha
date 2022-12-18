@@ -1,0 +1,12 @@
+{% extends 'base_back_kais.html.twig' %}
+
+{% block title %}~~ Edit Article ~~{% endblock %}
+
+{% block body %}
+
+    {{ include('article/_formedit.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_article_index_back') }}">back to list</a>
+
+    {{ include('article/_delete_form_back.html.twig') }}
+{% endblock %}

@@ -1,0 +1,35 @@
+
+
+<div class="row text-center justify-content-center">
+
+    <div class="col-lg-7 mt-5 mt-lg-10 d-flex align-items-stretch">
+        {{ form_start(form,{'attr' : {'novalidate' : 'novalidate'}} ) }}
+        <div class="php-email-form ">
+        <div class="row">
+                <h1 style="color: #0d3057"> {{ 'Pour avoir votre nouveau mot de passe'|trans|raw }}</h1>
+                <h3 style="color: #0d3057">{{ 'Entrer votre adresse mail'|trans|raw  }}</h3>
+
+            <div class="form-group ">
+                <input class="form-control border-light text-center "{{ form_widget(form.login) }}
+
+                {{ form_errors(form.login) }}
+            </div>
+        </div>
+            <button class="btn btn-outline-success" {{ form_widget(form.save)}}
+            <br>
+            <div class="text-center">
+                <a href="{{ path('nn') }}">{{ 'Retour à la page de connexion'|trans|raw  }}</a>
+            </div>
+        </div>
+
+        {{ form_end(form) }}
+
+    </div>
+</div>
+
+
+
+
+
+
+

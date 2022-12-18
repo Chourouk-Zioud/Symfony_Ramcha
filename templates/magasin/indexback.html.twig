@@ -1,0 +1,52 @@
+{% extends 'base_back_kais.html.twig' %}
+
+{% block title %}~~ Magasins ~~{% endblock %}
+
+{% block body %}
+
+    <table class="table table-striped table-hover" id="t">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Email</th>
+                <th>Tel</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+        {% for magasin in magasins %}
+            <tr>
+                <td>{{ magasin.nommagasin }}</td>
+                <td>{{ magasin.adressemagasin }}</td>
+                <td>{{ magasin.emailmagasin }}</td>
+                <td>{{ magasin.telmagasin }}</td>
+                <td>
+                    <a href="{{ path('app_magasin_show_back', {'idmagasin': magasin.idmagasin}) }}">show</a>
+                    <a href="{{ path('app_magasin_edit_back', {'idmagasin': magasin.idmagasin}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+
+
+    <a href="{{ path('app_magasin_new_back') }}">Create new</a>
+{% endblock %}

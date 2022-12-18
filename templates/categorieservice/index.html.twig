@@ -1,0 +1,58 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Categorieservice index{% endblock %}
+
+{% block body %}
+    <h1 class="tizaoui">{{ 'Categorie Service '|trans|raw }}</h1>
+    <style>
+        .tizaoui{text-align:center}
+        .tizaoui{color: #0d3057}
+    </style>
+    <table class="table" id="t">
+        <thead>
+            <tr>
+                <th style="color:#0d3057"> {{ 'Idcategorieservice '|trans|raw }}</th>
+                <th style="color:#0d3057"> {{ 'Nomcategorieservice '|trans|raw }}</th>
+                <th style="color:#0d3057"> {{ 'Descriptioncategorieservice '|trans|raw }}</th>
+                <th style="color:#0d3057">{{ 'actions'|trans|raw }}</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+        {% for categorieservice in categorieservices %}
+            <tr>
+                <td>{{ categorieservice.idcategorieservice }}</td>
+                <td>{{ categorieservice.nomcategorieservice }}</td>
+                <td>{{ categorieservice.descriptioncategorieservice }}</td>
+                <td>
+                    <a href="{{ path('app_categorieservice_show', {'idcategorieservice': categorieservice.idcategorieservice}) }}"><strong><i class="mdi mdi-book-open"></i> Afficher</strong> </a>
+                    <a href="{{ path('app_categorieservice_edit', {'idcategorieservice': categorieservice.idcategorieservice}) }}"><strong><i class="mdi mdi-border-color"></i> Modifier</strong></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button type="button" class="btn btn-outline btn-fw "><a href="{{ path('app_categorieservice_new') }}">Ajouter</a></button>
+    <form method="post">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="search" id="myInput">
+
+        </div>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+{% endblock %}

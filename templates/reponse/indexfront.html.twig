@@ -1,0 +1,53 @@
+{% extends 'base_front_kais.html.twig' %}
+
+{% block title %}Reponse {% endblock %}
+
+{% block body %}
+
+
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-title"></p>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table id="example" class="display expandable-table" style="width:100%">
+                                    <thead>
+                                    <tr>
+                                        <th>idreponse</th>
+                                        <th>text</th>
+                                        <th>status</th>
+                                        <th>idreclamation</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for reponse in reponses %}
+                                        <tr>
+                                            <td>{{ reponse.idreponse }}</td>
+                                            <td>{{ reponse.text }}</td>
+                                            <td>{{ reponse.status }}</td>
+                                            <td>{{ reponse.idreclamation }}</td>
+                                            <td>
+                                                <a href="{{ path('app_reponse_show_front', {'idreponse': reponse.idreponse}) }}">show</a>
+                                                <a href="{{ path('app_reponse_edit_front', {'idreponse': reponse.idreponse}) }}">edit</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <a href="{{ path('app_reponse_index_front') }}">Create new</a>
+{% endblock %}

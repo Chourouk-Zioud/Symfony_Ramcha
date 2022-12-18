@@ -1,0 +1,34 @@
+<div class="row text-center justify-content-center">
+    <div class="col-lg-10 mt-5 mt-lg-10 d-flex align-items-stretch">
+    {{ form_start(form,{'attr' : {'novalidate':'novalidate'}}) }}
+        <div class="php-email-form">
+            <div class="row">
+                <div class="section-title">
+                    <h2>Article {{ article.nomarticle }} {{ article.marquearticle }}</h2>
+                    <h6><p>{{ "Type de l'article"|trans|raw}}</br></p></h6>
+                    <h3><p>{{ article.typearticle }}</br></p></h3>
+                    <h6><p>{{"Disponibilité de l'article"|trans|raw}}</br></p></h6>
+                    <h3><p>{{ article.disponibilitearticle }}</br></p></h3>
+                    <h6><p>{{ 'Prix (DT)'|trans|raw }}</br></p></h6>
+                    <h3><p>{{ article.prixarticle }}</br></p></h3>
+                    <h6><p>{{ "Description de l'article"|trans|raw}}</br></p></h6>
+                    <h3><p>{{ article.descriptionarticle }}</br></p></h3>
+
+                </div>
+                <div>
+                    <label><h4>{{ form_label(form.modelivraison, "Mode de livraison") }} :</h4></label>
+                    {{ form_widget(form.modelivraison) }}
+                    </br>
+                    <label class="exampleSelectGender"><h5>{{ form_errors(form.modelivraison) }}</h5></label>
+                    </br>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-outline-primary">{{ button_label|default('Passer la commande'|trans|raw) }}</button></br></br>
+                    <a href="{{ path('app_devis_index', {'idarticle': article.idarticle}) }}">{{ 'Avoir un devis'|trans|raw }}</a>
+                </div>
+            </div>
+        </div>
+
+    {{ form_end(form) }}
+            </div>
+</div>
